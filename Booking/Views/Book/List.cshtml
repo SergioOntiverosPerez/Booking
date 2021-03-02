@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Livros";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 id="counter"></h2>
+
+<p>
+    <a id="newBook" onclick="NewBook()" class="btn btn-primary">Novo Livro</a>
+</p>
+
+<input type="text" id="searchBook" onkeyup="SearchBook()" placeholder="Buscar por titulo..." class="form-control-sm" />
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Código do Livro</th>
+            <th scope="col">Título do Livro</th>
+            <th scope="col">Preço</th>
+            <th scope="col">Data de Cadastro</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody id="books">
+    </tbody>
+</table>
+
+<h2 id="valorMdeio"></h2>
+
+
+@section Scripts{
+    <script src="~/js/Books.js" asp-append-version="true"></script>
+    <script type="text/javascript">getBooks();</script>
+}

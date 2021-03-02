@@ -1,0 +1,40 @@
+﻿@model Booking.ViewModels.BookViewModel
+@{
+   ViewBag.Title = "Cadastro de Livros";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Cadastro de Livros</h1>
+
+@using (Html.BeginForm("CreateBook", "Book"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Code)
+        @Html.TextBoxFor(m => m.Code, new { @class = "form-control", @placeholder = "Entre o codigo do livro" })
+        @Html.ValidationMessageFor(m => m.Code)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Title)
+        @Html.TextBoxFor(m => m.Title, new { @class = "form-control", @placeholder = "Entre o titulo do livro" })
+        @Html.ValidationMessageFor(m => m.Title)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Price)
+        @Html.TextBoxFor(m => m.Price, new { @class = "form-control", @placeholder = "Entre o preço do livro" })
+        @Html.ValidationMessageFor(m => m.Price)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.DateRegister)
+        @Html.TextBoxFor(m => m.DateRegister, new { @class = "form-control", type = "date"})
+        @Html.ValidationMessageFor(m => m.DateRegister)
+    </div>
+
+    <div>
+        @Html.HiddenFor(m => m.Id)
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+}
+
